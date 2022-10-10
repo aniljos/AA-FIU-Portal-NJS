@@ -1,10 +1,25 @@
 import { Button, Grid, TextField, Typography } from '@mui/material'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+// import Image from 'next/image'
+// import Link from 'next/link';
+import { useRouter } from 'next/router'
+import { useRef, useState } from 'react';
+import styles from '../../styles/Home.module.css';
+// import Dashboard from './Dashboard';
 
 
 
 export default function Login() {
+
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+    const router = useRouter();
+    const userRef = useRef(null)
+    const passRef = useRef(null)
+
+    function onSubmit() {
+
+        router.push("/component/main")
+    }
 
     return (
 
@@ -19,13 +34,7 @@ export default function Login() {
                         <div className={styles.finLogo}>
 
                             <a>
-                            <img src="/images/finacusLogo.png" alt="Finacus Logo" />
-                            {/* <Image
-                                src="/images/finacusLogo.png"
-                                alt="Finacus Logo"
-                                height="100"
-                                width="200"
-                            /> */}
+                                <img src="/images/finacusLogo.png" alt="Finacus Logo" />
                             </a>
 
                         </div>
@@ -35,7 +44,10 @@ export default function Login() {
                             fullWidth
                             name="Username"
                             type="text"
+                            value={userName}
+                            onChange={(e) => setUserName(e.target.value)}
                             label="Username"
+                            ref={userRef}
                             required
                             autoFocus
                         />
@@ -43,22 +55,27 @@ export default function Login() {
                         <TextField
                             margin='normal'
                             fullWidth
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             name="Password"
                             type="password"
                             label="Password"
                             required
+                            ref={passRef}
                         />
+
 
                         <Typography className={styles.forgotPassword}>
                             Forgot Password?
                         </Typography>
 
-                        <div className={styles.loginBtnWrapper}>
 
-                            <Button type="submit" variant="contained" color='warning' margin="normal">
+                        <div className={styles.loginBtnWrapper}>
+                            {/* <Link href="/component/main"> */}
+                            <Button type="submit" variant="contained" onClick={onSubmit} margin="normal">
                                 Login
                             </Button>
-
+                            {/* </Link> */}
                         </div>
 
                     </div>

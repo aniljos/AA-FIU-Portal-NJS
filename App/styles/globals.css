@@ -29,3 +29,40 @@ a {
 p {
   font-family: "Acumin Variable Concept" !important;
 }
+
+.MuiInputLabel-root {
+  font-size: 0.8rem !important;
+}
+
+.MuiOutlinedInput-input {
+  padding: 6px 4px !important;
+}
+
+.MuiButton-root {
+  min-width: 120px !important;
+}
+
+.MuiButton-contained {
+  color: rgb(247 245 245 / 87%) !important;
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  margin: 5px !important;
+}
+
+.MuiToolbar-root {
+  display: contents !important;
+}
+
+.MuiButton-root {
+  min-width: 120px !important;
+  background-color: #e47325;
+}
+
+.MuiButton-contained {
+  color: rgb(247 245 245 / 87%) !important;
+}
+
+.css-cveggr-MuiListItemIcon-root {
+  color: rgb(255, 255, 255) !important;
+}

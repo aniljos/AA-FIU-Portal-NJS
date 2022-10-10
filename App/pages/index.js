@@ -1,24 +1,28 @@
+
 import Head from 'next/head'
 import Image from 'next/image'
+import React from 'react'
+// import { Provider } from 'react-redux'
 import styles from '../styles/Home.module.css'
-import Login from './login'
+import Header from './component/Header'
+import Login from './component/login'
+import MyApp from './_app'
+// import store from "./redux/store"
 
 export default function Home() {
 
   return (
-    // <div className={styles.login}>
-    //   {/* Hello World */}
-    //   {/* <Image
-    //     // src="/images/Background.png"
-    //     // height="100%"
-    //     // width="100%"
-    //     className={styles.login}
-    //     alt='Background'
-    //   /> */}
-    // </div>
-    <>
-    <Login></Login>
-    </>
+    // <React.StrictMode>
+
+    // <Provider store={store}>
+    <Login />
+
+    // <MyApp />
+
+    //   </Provider>
+
+    // </React.StrictMode>
+
   )
 
   // return (

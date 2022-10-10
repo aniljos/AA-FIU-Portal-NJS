@@ -157,7 +157,7 @@
   opacity: 1;
   border-radius: 10px;
   width: 250px;
-  height: 350px;
+  height: 300px;
 }
 
 .finLogo {
@@ -185,37 +185,88 @@
   margin-top: 10px;
 }
 
-.MuiInputLabel-root {
-  font-size: 0.8rem !important;
-}
-
-.loginForm .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
-  margin: 5px !important;
-}
-
-.MuiOutlinedInput-input {
-  padding: 6px 4px !important;
-}
-
-.MuiButton-root {
-  min-width: 120px !important;
-}
-
-.MuiButton-contained {
-  color: rgb(247 245 245 / 87%) !important;
-}
-
-/* .MuiButton-containedPrimary {
-  color: #E47325 !important;
-}
-
-.css-sghohy-MuiButtonBase-root {
-  color: #E47325 !important;
-}
- */
-
-/* .MuiButton-containedPrimary {
+.menuColor {
   color: #fff;
-  background-color: #E47325 !important;
-} */
+}
 
+.headerIcon {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+}
+
+.headerMenu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.textFieldClass {
+  margin-top: 5px !important;
+}
+
+.iconCursor {
+  cursor: pointer;
+  color: #285EA7;
+}
+
+.iconLogout {
+  cursor: pointer;
+  color: #285EA7;
+  margin-right: 20px;
+}
+
+.paperClass {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 10rem !important;
+  align-items: center !important;
+  background-color: #0E366D !important;
+}
+
+.vectorLogo {
+  width: 90%;
+  height: 85px;
+  object-fit: contain;
+  object-position: center;
+  margin: 10px;
+}
+
+.labelclass {
+  text-align: center;
+  font-family: "Roboto";
+  line-height: 22px;
+  font-size: 19px;
+  color: white;
+}
+
+.labelcodeClass {
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+  color: white;
+  font-family: 'Roboto';
+}
+
+.searchDataMenu {
+  padding: 10px;
+  align-items: center;
+}
+
+.haMenuGrid {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ha-menuGrid .css-i4bv87-MuiSvgIcon-root {
+  margin-right: 10px;
+}
+
+.haMenu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
