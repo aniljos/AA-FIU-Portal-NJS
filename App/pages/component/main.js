@@ -1,5 +1,5 @@
 import { Box, Container, createTheme, CssBaseline, Divider, List, Paper, styled, ThemeProvider, Toolbar } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './Header';
 import MuiAppBar from "@mui/material/AppBar"
 import MuiDrawer from "@mui/material/Drawer"
@@ -7,9 +7,6 @@ import styles from "../../styles/Home.module.css"
 import { Outlet } from "react-router-dom";
 import { MainMenuItems } from "../listitem";
 
-
-
-const mdTheme = createTheme();
 
 const drawerWidth = 240;
 
@@ -66,11 +63,13 @@ const Drawer = styled(MuiDrawer, {
     }));
 
 
-function Main() {
+const mdTheme = createTheme();
+
+
+function MainContent(props) {
 
 
     const [open, setOpen] = useState(true);
-
 
     return (
 
@@ -91,12 +90,12 @@ function Main() {
                 />
 
                 <Drawer
-                    variant="permanent"
+                    variant='permanent'
                     open={open}
                     PaperProps={{
                         sx: {
                             backgroundColor: "#07244D",
-                            color: "white"
+                            color: "white",
                         },
                     }}
                     elevation={3}
@@ -146,11 +145,15 @@ function Main() {
                         overflow: "auto"
                     }}
                 >
-                </Box>
 
-                <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
-                    <Outlet />
-                </Container>
+                    <Toolbar />
+
+                    <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
+                        <Outlet />
+                        {/* {children} */}
+                    </Container>
+
+                </Box>
 
             </Box>
 
@@ -159,4 +162,9 @@ function Main() {
     )
 }
 
-export default Main;
+
+export default function Main() {
+
+    return <MainContent />;
+}
+

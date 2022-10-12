@@ -2,12 +2,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'
-// import { Provider } from 'react-redux'
 import styles from '../styles/Home.module.css'
 import Header from './component/Header'
 import Login from './component/login'
 import MyApp from './_app'
-// import store from "./redux/store"
 
 export default function Home() {
 
