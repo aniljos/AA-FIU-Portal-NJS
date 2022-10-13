@@ -66,3 +66,13 @@ p {
 .css-cveggr-MuiListItemIcon-root {
   color: rgb(255, 255, 255) !important;
 }
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
+  opacity: 1 !important;
+  -webkit-text-fill-color: rgb(24, 23, 23) !important;
+}
+
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
+  opacity: 1 !important;
+  -webkit-text-fill-color: rgb(24, 23, 23) !important;
+}
