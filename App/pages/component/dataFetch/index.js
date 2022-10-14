@@ -8,6 +8,7 @@ import styles from '../../../styles/Home.module.css';
 import moment from "moment";
 import { popUp } from "../../helper";
 import { ReactUtilityTable } from "react-utility-table";
+import { LoadingSpinnerComponent } from "../../loadingSpinner"
 
 
 const style = {
@@ -54,6 +55,7 @@ export class DataFetch extends Component {
             startModalDate: null,
             endModalDate: null,
             dateTime: null,
+            loading: true,
         }
         this.firstCall = this.firstCall.bind(this);
         this.start_Date = createRef(null)
@@ -231,6 +233,7 @@ export class DataFetch extends Component {
             cardImage: { ...dynamicImage },
             cardValue: { ...dynamicObj },
             cardColor: { ...dynamicColor },
+            loading: false
         })
     }
 
@@ -309,7 +312,8 @@ export class DataFetch extends Component {
             }
         }
         this.setState({
-            tableData: showTableData
+            tableData: showTableData,
+            loading: false,
         })
     }
 
@@ -331,6 +335,10 @@ export class DataFetch extends Component {
 
         try {
 
+            this.setState({
+                loading: true
+            })
+
             await trackPromise(getConsentInfo().then((resp) => {
 
                 if (resp) {
@@ -351,6 +359,9 @@ export class DataFetch extends Component {
                 }
             }))
 
+            this.setState({
+                loading: false
+            })
         } catch (error) {
 
             console.log(error, 'error');
@@ -374,6 +385,10 @@ export class DataFetch extends Component {
         var showTableData = [];
 
         try {
+
+            this.setState({
+                loading: true
+            })
 
             await trackPromise(getConsentInfo().then((resp) => {
 
@@ -851,7 +866,8 @@ export class DataFetch extends Component {
                             cardImage: { ...dynamicImage },
                             cardValue: { ...dynamicObj },
                             cardColor: { ...dynamicColor },
-                            tableData: showTableData
+                            tableData: showTableData,
+                            loading: false
                         })
                     }
                 }
@@ -896,6 +912,13 @@ export class DataFetch extends Component {
         return (
 
             <div>
+
+                {
+                    this.state.loading === true ?
+
+                        <LoadingSpinnerComponent />
+
+                        : null}
 
                 <Grid container item lg={12} md={12} sm={12} xs={12} className={styles.searchDataMenu}>
 
@@ -1007,7 +1030,9 @@ export class DataFetch extends Component {
                                                 {this.state.cardValue[index]}
                                             </Typography>
 
-                                            <Typography variant="h5" className={styles.cardWidgetLabel}>{this.state.cardLabel[index]}</Typography>
+                                            <Typography variant="h5" className={styles.cardWidgetLabel}>
+                                                {this.state.cardLabel[index]}
+                                            </Typography>
 
                                         </CardContent>
 
@@ -1058,11 +1083,151 @@ export class DataFetch extends Component {
                                         )
                                     }
                                 },
-                                { title: "Consented By", field: "subscriberName" },
-                                { title: "Start Date", field: "startDate" },
-                                { title: "End Date", field: "endDate" },
-                                { title: "Purpose", field: "purpose" },
-                                { title: 'Status', field: "status" },
+                                {
+                                    title: "Consented By", field: "subscriberName", render: rowData => {
+                                        return (
+
+                                            <Tooltip title="Click here to view the consent.">
+
+                                                <span>
+                                                    {rowData.subscriberName}
+                                                </span>
+
+                                            </Tooltip>
+
+                                        )
+                                    }
+                                },
+                                {
+                                    title: "Start Date", field: "startDate", filtering: false, cellStyle: { width: "10%" }, render: rowData => {
+                                        return (
+
+                                            <Tooltip title="Click here to view the consent.">
+
+                                                <span>
+                                                    {rowData.startDate}
+                                                </span>
+
+                                            </Tooltip>
+
+                                        )
+                                    }
+                                },
+                                {
+                                    title: "End Date", field: "endDate", filtering: false, cellStyle: { width: "10%" }, render: rowData => {
+                                        return (
+
+                                            <Tooltip title="Click here to view the consent.">
+
+                                                <span>
+                                                    {rowData.endDate}
+                                                </span>
+
+                                            </Tooltip>
+
+                                        )
+                                    }
+                                },
+                                {
+                                    title: "Purpose", field: "purpose", filtering: false, render: rowData => {
+                                        return (
+
+                                            <Tooltip title="Click here to view the consent.">
+
+                                                <span>
+                                                    {rowData.purpose}
+                                                </span>
+
+                                            </Tooltip>
+
+                                        )
+                                    }
+                                },
+                                {
+                                    title: 'Status', field: "status", filtering: false, render: rowData => {
+                                        return (
+
+                                            <>
+                                                {
+                                                    rowData.status === "Active" ?
+
+                                                        <div style={{ color: "#2B821B" }}>
+                                                            <Tooltip title="Click here to view the consent.">
+
+                                                                <span>
+                                                                    {rowData.status}
+                                                                </span>
+
+                                                            </Tooltip>
+                                                        </div>
+
+                                                        :
+
+                                                        rowData.status === "Expired" ?
+
+                                                            <div style={{ color: "#F60A0A" }}>
+                                                                <Tooltip title="Click here to view the consent.">
+
+                                                                    <span>
+                                                                        {rowData.status}
+                                                                    </span>
+
+                                                                </Tooltip>
+                                                            </div>
+
+                                                            :
+
+                                                            rowData.status === "Paused" ?
+
+                                                                <div style={{ color: "#4473B2" }}>
+                                                                    <Tooltip title="Click here to view the consent.">
+
+                                                                        <span>
+                                                                            {rowData.status}
+                                                                        </span>
+
+                                                                    </Tooltip>
+                                                                </div>
+
+                                                                :
+
+                                                                rowData.status === "Rejected" ?
+
+                                                                    <div style={{ color: "#FFA723" }}>
+                                                                        <Tooltip title="Click here to view the consent.">
+
+                                                                            <span>
+                                                                                {rowData.status}
+                                                                            </span>
+
+                                                                        </Tooltip>
+                                                                    </div>
+
+                                                                    :
+
+                                                                    rowData.status === "Revoked" ?
+
+                                                                        <div style={{ color: "#6200AE" }}>
+                                                                            <Tooltip title="Click here to view the consent.">
+
+                                                                                <span>
+                                                                                    {rowData.status}
+                                                                                </span>
+
+                                                                            </Tooltip>
+                                                                        </div>
+
+                                                                        :
+
+                                                                        <span>
+                                                                            {rowData.status}
+                                                                        </span>
+                                                }
+                                            </>
+
+                                        )
+                                    }
+                                },
                             ]}
 
                             data={this.state.tableData}
@@ -1346,7 +1511,7 @@ export class DataFetch extends Component {
 
                                             </Grid>
 
-                                            <Grid lg={8} md={8} sm={12} xs={12}>
+                                            <Grid lg={7} md={7} sm={12} xs={12}>
 
                                                 <TextField disabled className={styles.textFieldmargin} value={this.state.fiType} type='text' variant="outlined" margin="normal" fullWidth />
 
@@ -1388,7 +1553,7 @@ export class DataFetch extends Component {
 
                                 <Grid item xs={12} lg={12} md={12} sm={12} style={{ textAlign: "center" }}>
 
-                                    <Button variant='outlined' color='primary' onClick={() => this.closeModalFunction()}>
+                                    <Button variant='contained' color='primary' onClick={() => this.closeModalFunction()}>
                                         Close
                                     </Button>
 

@@ -289,7 +289,7 @@
 
 .cardWidgetNumber {
   text-align: left;
-  font-size: 15px !important;
+  font-size: 20px !important;
   font-weight: 500 !important;
 }
 
@@ -323,5 +323,44 @@
 }
 
 .textclasscss {
+  margin-top: 10px !important;
+}
+
+.dataFetchCardStyle {
+  gap: 1rem;
+  margin-bottom: 30px !important;
+  padding-left: 10px;
+}
+
+.formClass {
+  width: 96%;
+}
+
+.classesCard {
+  top: 14px !important;
+  left: 16px !important;
+  width: 100% !important;
+}
+
+.cardClass {
+  padding: 15px !important;
+  margin: 15px !important;
+  border: 1px solid #fff !important;
+}
+
+.titleClasses {
+  width: 100%;
+  background: #285EA7;
+  color: white;
+  padding: 5px;
+}
+
+.cardButtonStyle {
+  display: flex;
+  justify-content: center;
+}
+
+.addClassButton {
+  text-align: center;
   margin-top: 10px !important;
 }

@@ -1,6 +1,6 @@
 import Dashboard from "../component/dashboard"
 import DataFetch from "../component/dataFetch"
-import InstituteManagement from "../component/instituteManagement"
+import InstituteManagement from "../component/instituteManagement/index"
 import SessionAudit from "../component/sessionAudit"
 import DataFetchAnalytics from "../component/fetchs"
 import mytest from "../component/mytest"
@@ -75,11 +75,11 @@ export const routes: Array<AppRoute> = [
         icon: AddCircleRounded,
         isMain: true
     },
-    {
-        title: "My test",
-        route: "/mytest",
-        component: mytest,
-        icon: AddCircleRounded,
-        isMain: true
-    },
+    // {
+    //     title: "My test",
+    //     route: "/mytest",
+    //     component: mytest,
+    //     icon: AddCircleRounded,
+    //     isMain: true
+    // },
 ]
