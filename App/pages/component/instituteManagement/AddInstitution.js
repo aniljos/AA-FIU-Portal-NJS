@@ -6,6 +6,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { popUp } from "../../helper";
 import { trackPromise } from "react-promise-tracker";
 import { postServiceMethod } from "../../services/axiosService";
+import { useRouter } from "next/router";
 
 
 function InstituteManagement() {
@@ -36,6 +37,8 @@ function InstituteManagement() {
     const server_ipAddress = useRef(null);
     const authority_documentName = useRef(null);
     const authority_documentPath = useRef(null);
+
+    const router = useRouter()
 
 
     function clearScreen() {
@@ -254,6 +257,12 @@ function InstituteManagement() {
                 popUp({ message: "Something went wrong.", icons: "error", title: "Error" })
             }
         }
+    }
+
+
+    function backtoAaBased() {
+
+        router.push("/component/instituteManagement")
     }
 
 
@@ -534,7 +543,7 @@ function InstituteManagement() {
 
                 <CardActions className={styles.cardButtonStyle}>
 
-                    <Button variant="contained" color='primary' onClick={() => onSubmit()} type='submit'>
+                    <Button variant="contained" color='warning' onClick={() => onSubmit()} type='submit'>
                         Add New Institution
                     </Button>
 
@@ -542,7 +551,7 @@ function InstituteManagement() {
                         Clear
                     </Button>
 
-                    <Button variant="outlined" color='primary' type='submit'>
+                    <Button variant="outlined" color='primary' onClick={() => backtoAaBased()} type='submit'>
                         Back
                     </Button>
 

@@ -72,7 +72,7 @@ export default function Login() {
 
                         <div className={styles.loginBtnWrapper}>
                             {/* <Link href="/component/main"> */}
-                            <Button type="submit" variant="contained" onClick={onSubmit} margin="normal">
+                            <Button type="submit" variant="contained" color='warning' onClick={onSubmit} margin="normal">
                                 Login
                             </Button>
                             {/* </Link> */}

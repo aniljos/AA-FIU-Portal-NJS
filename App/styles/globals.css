@@ -54,10 +54,10 @@ p {
   display: contents !important;
 }
 
-.MuiButton-root {
+/* .MuiButton-root {
   min-width: 120px !important;
   background-color: #e47325;
-}
+} */
 
 .MuiButton-contained {
   color: rgb(247 245 245 / 87%) !important;
