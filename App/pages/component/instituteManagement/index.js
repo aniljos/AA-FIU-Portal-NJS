@@ -114,9 +114,7 @@ function AaBasedAnalytics() {
         </div>
 
     )
-
 }
-
 
 
 export default AaBasedAnalytics

@@ -9,6 +9,7 @@ import { postServiceMethod } from "../../services/axiosService";
 import { useRouter } from "next/router";
 
 
+
 function InstituteManagement() {
 
     //state
@@ -37,7 +38,7 @@ function InstituteManagement() {
     const server_ipAddress = useRef(null);
     const authority_documentName = useRef(null);
     const authority_documentPath = useRef(null);
-
+    //router
     const router = useRouter()
 
 
@@ -315,7 +316,7 @@ function InstituteManagement() {
 
                                 </Grid>
 
-                                <Grid lg={7} md={7} sm={12} xs={12}>
+                                <Grid lg={8} md={8} sm={12} xs={12}>
 
                                     <TextField className={styles.textFieldmargin} fullWidth type='text' inputRef={institution_idName} variant="outlined" margin="normal" value={institutionIdName} onChange={(e) => setInstitutionIdName(e.target.value)} required />
 
@@ -355,7 +356,7 @@ function InstituteManagement() {
 
                                 </Grid>
 
-                                <Grid lg={7} md={7} sm={12} xs={12}>
+                                <Grid lg={8} md={8} sm={12} xs={12}>
 
                                     <TextField className={styles.textFieldmargin} fullWidth type='text' inputRef={institution_name} variant="outlined" margin="normal" value={institutionName} onChange={(e) => setInstitutionName(e.target.value)} required />
 
@@ -395,7 +396,7 @@ function InstituteManagement() {
 
                                 </Grid>
 
-                                <Grid lg={7} md={7} sm={12} xs={12}>
+                                <Grid lg={8} md={8} sm={12} xs={12}>
 
                                     <TextField className={styles.textFieldmargin} fullWidth type='number' inputRef={mobile_number} variant="outlined" margin="normal" value={mobileNo} onChange={(e) => setMobileNo(e.target.value)} required />
 
@@ -435,7 +436,7 @@ function InstituteManagement() {
 
                                 </Grid>
 
-                                <Grid lg={7} md={7} sm={12} xs={12}>
+                                <Grid lg={8} md={8} sm={12} xs={12}>
 
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
 
@@ -487,7 +488,7 @@ function InstituteManagement() {
 
                                 </Grid>
 
-                                <Grid lg={7} md={7} sm={12} xs={12}>
+                                <Grid lg={8} md={8} sm={12} xs={12}>
 
                                     <TextField className={styles.textFieldmargin} fullWidth type='number' inputRef={server_ipAddress} variant="outlined" margin="normal" value={serverIpAddress} onChange={(e) => setServerIpAddress(e.target.value)} required />
 
@@ -527,7 +528,7 @@ function InstituteManagement() {
 
                                 </Grid>
 
-                                <Grid lg={7} md={7} sm={12} xs={12}>
+                                <Grid lg={8} md={8} sm={12} xs={12}>
 
                                     <TextField className={styles.textFieldmargin} fullWidth type='text' inputRef={authority_documentPath} variant="outlined" margin="normal" value={authorityDocumentPath} onChange={(e) => setAuthorityDocumentPath(e.target.value)} required />
 

@@ -29,6 +29,7 @@ export class DataFetch extends Component {
         super(props)
 
         this.state = {
+
             menu: false,
             startDate: null,
             endDate: null,
@@ -57,15 +58,18 @@ export class DataFetch extends Component {
             dateTime: null,
             loading: true,
         }
+
         this.firstCall = this.firstCall.bind(this);
         this.start_Date = createRef(null)
         this.end_Date = createRef(null);
     }
 
+
     componentDidMount() {
 
         this.firstCall()
     }
+
 
     firstCall = async () => {
 
@@ -110,6 +114,7 @@ export class DataFetch extends Component {
             popUp({ message: "Something went wrong", icons: "error", title: "Error" })
         }
     }
+
 
     //common card function and sending flag true or false to differentiate whether it is onload or onclick
 
@@ -237,6 +242,7 @@ export class DataFetch extends Component {
         })
     }
 
+
     //common table function to show data in table and sending flag to differentiate whether it is onload or onclick
 
     settingTableData(resp, flag) {
@@ -311,6 +317,7 @@ export class DataFetch extends Component {
                 this.firstCall();
             }
         }
+
         this.setState({
             tableData: showTableData,
             loading: false,
@@ -346,6 +353,7 @@ export class DataFetch extends Component {
                     if (resp.length !== 0) {
 
                         console.log(resp, 'rsp')
+
                         this.setState({
                             dbData: resp
                         })
@@ -694,6 +702,8 @@ export class DataFetch extends Component {
                             })
                         }
 
+                        //getting data when every field is blank.
+
                         if (this.state.searchInstitution.length === 0 && this.state.purpose.length === 0 && this.state.status.length === 0) {
 
                             this.firstCall();
@@ -759,7 +769,6 @@ export class DataFetch extends Component {
                                 }
                             })
                         }
-
 
                         //getting data based on institution,purpose and status
 
@@ -828,7 +837,6 @@ export class DataFetch extends Component {
                             })
                         }
 
-
                         dynamicObj = {
                             "0": active,
                             "1": revoked,
@@ -889,7 +897,7 @@ export class DataFetch extends Component {
             subscriberName: rowData.subscriberName,
             fiType: rowData.fiType,
             modalStatus: rowData.status,
-            createDate: (rowData.createdDate),
+            createDate: rowData.createdDate,
             endModalDate: rowData.endDate,
             startModalDate: rowData.startDate,
             modalPurpose: rowData.purpose,
@@ -911,14 +919,14 @@ export class DataFetch extends Component {
 
         return (
 
+
             <div>
 
-                {
-                    this.state.loading === true ?
+                {this.state.loading === true ?
 
-                        <LoadingSpinnerComponent />
+                    <LoadingSpinnerComponent />
 
-                        : null}
+                    : null}
 
                 <Grid container item lg={12} md={12} sm={12} xs={12} className={styles.searchDataMenu}>
 
@@ -955,7 +963,7 @@ export class DataFetch extends Component {
 
                     <Grid container lg={2} md={2} sm={12} xs={12} className={styles.haMenu}>
 
-                        <Button variant="contained" color="primary" type='submit' onClick={this.onSubmit}>
+                        <Button variant="contained" type='submit' onClick={this.onSubmit}>
                             Search
                         </Button>
 
@@ -1099,7 +1107,7 @@ export class DataFetch extends Component {
                                     }
                                 },
                                 {
-                                    title: "Start Date", field: "startDate", filtering: false, cellStyle: { width: "10%" }, render: rowData => {
+                                    title: "Start Date", field: "startDate", filtering: false, cellStyle: { width: "14%" }, render: rowData => {
                                         return (
 
                                             <Tooltip title="Click here to view the consent.">
@@ -1114,7 +1122,7 @@ export class DataFetch extends Component {
                                     }
                                 },
                                 {
-                                    title: "End Date", field: "endDate", filtering: false, cellStyle: { width: "10%" }, render: rowData => {
+                                    title: "End Date", field: "endDate", filtering: false, cellStyle: { width: "14%" }, render: rowData => {
                                         return (
 
                                             <Tooltip title="Click here to view the consent.">
@@ -1250,12 +1258,7 @@ export class DataFetch extends Component {
 
                     <div>
 
-                        <Modal
-                            open={this.state.openModal}
-                            onClose={() => this.closeModalFunction()}
-                            aria-labelledby="modal-modal-title"
-                            aria-describedby="modal-modal-description"
-                        >
+                        <Modal open={this.state.openModal} onClose={() => this.closeModalFunction()} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
 
                             <Box sx={style}>
 
@@ -1267,7 +1270,7 @@ export class DataFetch extends Component {
 
                                 </Grid>
 
-                                <Grid xs={12} container lg={12} md={12} sm={12}>
+                                <Grid container lg={12} md={12} sm={12} xs={12}>
 
                                     <Grid container flexDirection="row" item xs={12} lg={12} md={12} sm={12} className={styles.textfieldFirstClass}>
 
@@ -1309,7 +1312,7 @@ export class DataFetch extends Component {
 
                                     </Grid>
 
-                                    <Grid container flexDirection="row" className={styles.textclasscss} item lg={12} md={12} xs={12}>
+                                    <Grid container flexDirection="row" className={styles.textclasscss} item lg={12} md={12} xs={12} sm={12}>
 
                                         <Grid container flexDirection="row" lg={6} md={6} sm={12} xs={12}>
 
@@ -1349,7 +1352,7 @@ export class DataFetch extends Component {
 
                                     </Grid>
 
-                                    <Grid container flexDirection="row" className={styles.textclasscss} item lg={12} md={12} xs={12}>
+                                    <Grid container flexDirection="row" className={styles.textclasscss} item lg={12} md={12} xs={12} sm={12}>
 
                                         <Grid container flexDirection="row" lg={6} md={6} sm={12} xs={12}>
 
@@ -1366,7 +1369,7 @@ export class DataFetch extends Component {
                                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
 
                                                     <DesktopDatePicker
-                                                        label=""
+                                                        label=''
                                                         value={this.state.createDate}
                                                         disabled
                                                         onChange={(e) => this.setState({ createDate: e })}
@@ -1399,7 +1402,7 @@ export class DataFetch extends Component {
 
                                     </Grid>
 
-                                    <Grid container flexDirection="row" className={styles.textclasscss} item lg={12} md={12} xs={12}>
+                                    <Grid container flexDirection="row" className={styles.textclasscss} item lg={12} md={12} xs={12} sm={12}>
 
                                         <Grid container flexDirection="row" lg={6} md={6} sm={12} xs={12}>
 
@@ -1449,7 +1452,7 @@ export class DataFetch extends Component {
 
                                     </Grid>
 
-                                    <Grid container flexDirection="row" className={styles.textclasscss} item lg={12} md={12} xs={12}>
+                                    <Grid container flexDirection="row" className={styles.textclasscss} item lg={12} md={12} xs={12} sm={12}>
 
                                         <Grid container flexDirection="row" lg={6} md={6} sm={12} xs={12}>
 
@@ -1499,7 +1502,7 @@ export class DataFetch extends Component {
 
                                     </Grid>
 
-                                    <Grid container flexDirection="row" className={styles.textclasscss} item lg={12} md={12} xs={12}>
+                                    <Grid container flexDirection="row" className={styles.textclasscss} item lg={12} md={12} xs={12} sm={12}>
 
                                         <Grid container flexDirection="row" lg={6} md={6} sm={12} xs={12}>
 
@@ -1534,10 +1537,10 @@ export class DataFetch extends Component {
                                                 <LocalizationProvider dateAdapter={AdapterDateFns}>
 
                                                     <DateTimePicker
-                                                        renderInput={(props) => <TextField {...props} />}
                                                         label=''
                                                         disabled
                                                         value={this.state.dateTime}
+                                                        renderInput={(props) => <TextField {...props} />}
                                                         onChange={(e) => this.setState({ dateTime: e })}
                                                     />
 
@@ -1553,7 +1556,7 @@ export class DataFetch extends Component {
 
                                 <Grid item xs={12} lg={12} md={12} sm={12} style={{ textAlign: "center" }}>
 
-                                    <Button variant='contained' color='primary' onClick={() => this.closeModalFunction()}>
+                                    <Button variant="contained" onClick={() => this.closeModalFunction()}>
                                         Close
                                     </Button>
 
@@ -1565,15 +1568,14 @@ export class DataFetch extends Component {
 
                     </div>
 
-                    : null}
+                    :
+
+                    null}
 
             </div>
 
         )
-
     }
-
-
 }
 
 export default DataFetch

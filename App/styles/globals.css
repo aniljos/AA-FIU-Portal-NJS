@@ -76,3 +76,20 @@ p {
   opacity: 1 !important;
   -webkit-text-fill-color: rgb(24, 23, 23) !important;
 }
+
+/* 
+.css-5lbw0b-MuiTypography-root {
+  margin-bottom: 5px !important;
+} */
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  margin: 5px !important;
+}
+
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+  padding: 4px !important;
+}
+
+.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root{
+  margin-right: 0px !important;
+}

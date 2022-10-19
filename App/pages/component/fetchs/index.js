@@ -16,6 +16,7 @@ export class DataFetchAnalytics extends Component {
         super(props)
 
         this.state = {
+
             dbData: [],
             institutionLabel: "",
             menu: false,
@@ -29,7 +30,6 @@ export class DataFetchAnalytics extends Component {
             cardImage: null,
             tableData: [],
         }
-
     }
 
 
@@ -367,7 +367,6 @@ export class DataFetchAnalytics extends Component {
                             tableData: showTableData,
                             loading: false
                         })
-
                     }
                 }
             }))
@@ -508,9 +507,7 @@ export class DataFetchAnalytics extends Component {
 
 
         )
-
     }
-
 }
 
 

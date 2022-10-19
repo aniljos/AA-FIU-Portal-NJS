@@ -1,10 +1,7 @@
 import { Button, Grid, TextField, Typography } from '@mui/material'
-// import Image from 'next/image'
-// import Link from 'next/link';
 import { useRouter } from 'next/router'
 import { useRef, useState } from 'react';
 import styles from '../../styles/Home.module.css';
-// import Dashboard from './Dashboard';
 
 
 
@@ -71,11 +68,11 @@ export default function Login() {
 
 
                         <div className={styles.loginBtnWrapper}>
-                            {/* <Link href="/component/main"> */}
+
                             <Button type="submit" variant="contained" color='warning' onClick={onSubmit} margin="normal">
                                 Login
                             </Button>
-                            {/* </Link> */}
+
                         </div>
 
                     </div>
@@ -87,5 +84,4 @@ export default function Login() {
         </div>
 
     )
-
 }

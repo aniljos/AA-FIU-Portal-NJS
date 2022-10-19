@@ -3,7 +3,7 @@ import DataFetch from "../component/dataFetch"
 import InstituteManagement from "../component/instituteManagement/index"
 import SessionAudit from "../component/sessionAudit"
 import DataFetchAnalytics from "../component/fetchs"
-import mytest from "../component/mytest"
+// import mytest from "../component/mytest"
 import ManageAppSettings from "../component/manageApp"
 import Logs from "../component/logs"
 import { AddCircleRounded } from "@mui/icons-material";
