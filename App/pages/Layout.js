@@ -8,6 +8,7 @@ import styles from "../styles/Home.module.css"
 import { MainMenuItems } from "../component/ListItem";
 
 
+
 const drawerWidth = 240;
 
 
@@ -66,7 +67,7 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 
-function MainContent({ children }) {
+function Main({ children }) {
 
     const [open, setOpen] = useState(true);
 
@@ -148,7 +149,7 @@ function MainContent({ children }) {
                     <Toolbar />
 
                     <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
-                        {/* <Outlet /> */}
+                        
                         {children}
                     </Container>
 
@@ -161,9 +162,6 @@ function MainContent({ children }) {
     )
 }
 
+export default Main;
 
-export default function Layout() {
-
-    return <MainContent />;
-}
 
