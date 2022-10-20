@@ -4,7 +4,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ListSubheader from "@mui/material/ListSubheader";
 import AssignmentIcon from "@mui/icons-material/Assignment";
-import { routes } from "./routes/routes";
+import { routes } from "../routes/routes";
 // import { useNavigate } from "react-router-dom";
 import { Collapse } from "@mui/material";
 import ExpandLess from "@mui/icons-material/ExpandLess";
@@ -26,7 +26,7 @@ export const MainMenuItems = React.memo((props: any) => {
         // <Link href={"/main" + item.route} />
 
         // router.route("/component/main" + item.route)
-        router.push('/component' + item.route)
+        router.push('/mainPages' + item.route)
     }
 
     function handleExpand(index: number) {
@@ -60,7 +60,7 @@ export const MainMenuItems = React.memo((props: any) => {
                                             const SubIcon = subItem.icon;
 
                                             return (
-                                                <ListItemButton sx={{ pl: 4 }} key={index} onClick={() => { handleClick(subItem); router.push("/component" + item.route) }}>
+                                                <ListItemButton sx={{ pl: 4 }} key={index} onClick={() => { handleClick(subItem); }}>
                                                     <ListItemIcon style={{ minWidth: '30px' }}>
                                                         <SubIcon />
                                                     </ListItemIcon>
@@ -77,7 +77,7 @@ export const MainMenuItems = React.memo((props: any) => {
                             <ListItemButton key={index}
                                 onClick={() => {
                                     handleClick(item);
-                                    router.push("/component" + item.route)
+                                    // router.push("/component" + item.route)
                                 }}
                             >
                                 <ListItemIcon style={{ minWidth: '30px' }}>

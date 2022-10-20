@@ -83,6 +83,7 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
+  box-sizing: border-box;
 }
 
 .card:hover,
@@ -134,7 +135,6 @@
 .login {
   height: 100vh;
   background-size: cover !important;
-  /* background: url("./img/FiuLogin.png") no-repeat; */
   background: url("../public/images/FiuLogin.png") no-repeat;
 }
 
@@ -158,6 +158,7 @@
   border-radius: 10px;
   width: 250px;
   height: 300px;
+  box-sizing: content-box !important;
 }
 
 .finLogo {

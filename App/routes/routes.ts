@@ -1,10 +1,10 @@
-import Dashboard from "../component/dashboard";
-import DataFetch from "../component/dataFetch";
-import InstituteManagement from "../component/instituteManagement/index";
-import SessionAudit from "../component/sessionAudit";
-import DataFetchAnalytics from "../component/fetchs";
-import ManageAppSettings from "../component/manageApp";
-import Logs from "../component/logs";
+import Dashboard from "../pages/mainPages/Dashboard";
+import DataFetch from "../pages/mainPages/Datafetch";
+import InstituteManagement from "../pages/mainPages/InstituteManagement";
+import SessionAudit from "../pages/mainPages/SessionAudit";
+import DataFetchAnalytics from "../pages/mainPages/DatafetchAnalytics";
+import ManageAppSettings from "../pages/mainPages/ManageApp";
+import Logs from "../pages/mainPages/Logs";
 import { AddCircleRounded } from "@mui/icons-material";
 import EnhancedEncryptionRoundedIcon from "@mui/icons-material/EnhancedEncryptionRounded";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -27,49 +27,49 @@ interface AppRoute {
 export const routes: Array<AppRoute> = [
     {
         title: "Dashboard",
-        route: "/dashboard",
+        route: "/Dashboard",
         component: Dashboard,
         icon: DashboardIcon,
         isMain: true
     },
     {
         title: "Consent Analysis",
-        route: "/dataFetch",
+        route: "/Datafetch",
         component: DataFetch,
         icon: DataArrayIcon,
         isMain: true
     },
     {
         title: "Data Fetch",
-        route: "/fetchs",
+        route: "/DatafetchAnalytics",
         component: DataFetchAnalytics,
         icon: EnhancedEncryptionRoundedIcon,
         isMain: true
     },
     {
         title: "Institute Management",
-        route: "/instituteManagement",
+        route: "/InstituteManagement",
         component: InstituteManagement,
         icon: ShareIcon,
         isMain: true
     },
     {
         title: "Session Audit",
-        route: "/sessionAudit",
+        route: "/SessionAudit",
         component: SessionAudit,
         icon: BarChartIcon,
         isMain: true
     },
     {
         title: "Manage App Settings",
-        route: "/manageApp",
+        route: "/ManageApp",
         component: ManageAppSettings,
         icon: SettingsIcon,
         isMain: true
     },
     {
         title: "Logs",
-        route: "/logs",
+        route: "/Logs",
         component: Logs,
         icon: AddCircleRounded,
         isMain: true

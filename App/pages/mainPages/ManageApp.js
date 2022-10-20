@@ -3,10 +3,10 @@ import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { useEffect, useState } from "react"
 import { trackPromise } from "react-promise-tracker";
-import styles from "../../../styles/Home.module.css";
-import { popUp } from "../../helper";
-import { LoadingSpinnerComponent } from "../../loadingSpinner";
-import { getServiceMethod } from "../../services/axiosService";
+import styles from "../../styles/Home.module.css";
+import { popUp } from "../helper/popUp";
+import { LoadingSpinnerComponent } from "../helper/loadingSpinner";
+import { getServiceMethod } from "../services/axiosService";
 
 
 

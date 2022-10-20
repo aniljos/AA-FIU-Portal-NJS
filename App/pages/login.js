@@ -1,7 +1,7 @@
 import { Button, Grid, TextField, Typography } from '@mui/material'
 import { useRouter } from 'next/router'
 import { useRef, useState } from 'react';
-import styles from '../../styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 
 
 
@@ -15,7 +15,7 @@ export default function Login() {
 
     function onSubmit() {
 
-        router.push("/component/main")
+        router.push("/Layout")
     }
 
     return (

@@ -1,8 +1,7 @@
 import { Backdrop } from "@mui/material";
 import { usePromiseTracker } from "react-promise-tracker";
 import { BeatLoader } from "react-spinners";
-import {makeStyles} from "@mui/styles"
-
+import { makeStyles } from "@mui/styles";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,5 +30,4 @@ export const LoadingSpinnerComponent = (props) => {
         </div>
 
     )
-
 }

@@ -1,10 +1,10 @@
 import { Button, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { trackPromise } from "react-promise-tracker";
-import { popUp } from "../../helper";
-import styles from "../../../styles/Home.module.css";
-import { LoadingSpinnerComponent } from "../../loadingSpinner";
-import { getServiceMethod } from "../../services/axiosService";
+import { popUp } from "../helper/popUp";
+import styles from "../../styles/Home.module.css";
+import { LoadingSpinnerComponent } from "../helper/loadingSpinner";
+import { getServiceMethod } from "../services/axiosService";
 import { ReactUtilityTable } from "react-utility-table";
 import { useRouter } from "next/router";
 
@@ -46,7 +46,7 @@ function AaBasedAnalytics() {
 
     function addNewInstitution() {
 
-        router.push("/component/instituteManagement/AddInstitution")
+        router.push("/mainPages/AddInstitution")
     }
 
 

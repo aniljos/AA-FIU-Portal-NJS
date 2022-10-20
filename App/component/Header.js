@@ -1,5 +1,5 @@
 import { Grid, InputAdornment, TextField } from "@mui/material"
-import styles from '../../styles/Home.module.css';
+import styles from '../styles/Home.module.css';
 import SearchIcon from "@mui/icons-material/Search";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import NotificationsIcon from "@mui/icons-material/Notifications";

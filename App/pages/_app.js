@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import Login from './component/login'
+import Login from './login'
 
 
 function MyApp({ Component, pageProps }) {

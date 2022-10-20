@@ -1,11 +1,11 @@
 import { Button, Card, CardActions, CardContent, Grid, TextField, Typography } from "@mui/material"
-import styles from "../../../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 import { useRef, useState } from "react";
 import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { popUp } from "../../helper";
+import { popUp } from "../helper/popUp";
 import { trackPromise } from "react-promise-tracker";
-import { postServiceMethod } from "../../services/axiosService";
+import { postServiceMethod } from "../services/axiosService";
 import { useRouter } from "next/router";
 
 

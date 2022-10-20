@@ -1,11 +1,11 @@
 import { Box, Container, createTheme, CssBaseline, Divider, List, Paper, styled, ThemeProvider, Toolbar } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import Header from './Header';
+import Header from '../component/Header';
 import MuiAppBar from "@mui/material/AppBar"
 import MuiDrawer from "@mui/material/Drawer"
-import styles from "../../styles/Home.module.css"
-import { Outlet } from "react-router-dom";
-import { MainMenuItems } from "../listitem";
+import styles from "../styles/Home.module.css"
+// import { Outlet } from "react-router-dom";
+import { MainMenuItems } from "../component/ListItem";
 
 
 const drawerWidth = 240;
@@ -66,8 +66,7 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 
-function MainContent(props) {
-
+function MainContent({ children }) {
 
     const [open, setOpen] = useState(true);
 
@@ -149,8 +148,8 @@ function MainContent(props) {
                     <Toolbar />
 
                     <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
-                        <Outlet />
-                        {/* {children} */}
+                        {/* <Outlet /> */}
+                        {children}
                     </Container>
 
                 </Box>
@@ -163,7 +162,7 @@ function MainContent(props) {
 }
 
 
-export default function Main() {
+export default function Layout() {
 
     return <MainContent />;
 }
