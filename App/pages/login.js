@@ -15,7 +15,7 @@ export default function Login() {
 
     function onSubmit() {
 
-        router.push("/Layout")
+        router.push("/dashboard")
     }
 
     return (
