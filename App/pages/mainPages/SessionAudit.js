@@ -1,20 +1,14 @@
 
+function SessionAudit() {
 
 
-
-function SessionAudit(){
-
-
-    return(
-
+    return (
 
         <div>
             Session Audit
         </div>
 
     )
-
-
 }
 
 

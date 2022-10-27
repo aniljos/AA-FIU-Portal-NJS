@@ -6,8 +6,7 @@ import { trackPromise } from "react-promise-tracker";
 import styles from "../../styles/Home.module.css";
 import { popUp } from "../helper/popUp";
 import { LoadingSpinnerComponent } from "../helper/loadingSpinner";
-import { getServiceMethod } from "../services/axiosService";
-
+import { getServiceMethod, postServiceMethod } from "../services/axiosService";
 
 
 
@@ -112,6 +111,74 @@ function ManageAppSettings() {
         setAssesmentTypeDisable(false);
         setCertificateFilePathDisable(false);
         setShamatiCentralDisable(false);
+    }
+
+
+    function closeEditing() {
+
+        setButtonChange(false);
+        setJwsDisable(true);
+        setCertificateFileNameDisable(true);
+        setAllowedHostDisable(true);
+        setCertificateFileNamePrimaryDisable(true);
+        setSubscriberDisable(true);
+        setCertificateFileNamePassDisable(true);
+        setDateFormatDisable(true);
+        setLicenseKeyDisable(true);
+        setDatabaseNameDisable(true);
+        setLicenseExpiryDateDisable(true);
+        setCurrentApiVersionDisable(true);
+        setLicenseToDisable(true);
+        setBaseApplicationPathDisable(true);
+        setAssesmentTypeDisable(true);
+        setCertificateFilePathDisable(true);
+        setShamatiCentralDisable(true);
+    }
+
+
+    async function onSubmit() {
+
+        try {
+
+            const jsonObject = {
+                "jwsRequired": jws,
+                "certificateFileName": certificateFileName,
+                "allowedHosts": allowedHost,
+                "certificateFileNamePK": certificateFileNamePrimary,
+                "subscriberSuffix": subscriber,
+                "certificateFileNamePassPhrase": certificateFileNamePass,
+                "dateFormat": dateFormat,
+                "licenceKey": licenseKey,
+                "databaseName": databaseName,
+                "licenceExpiry": licenseExpiryDate,
+                "currentAPIVersion": currentApiVersion,
+                "licenceTo": licenseTo,
+                "baseApplicationPath": baseApplicationPath,
+                "assessmentType": assesmentType,
+                "certificateFilePath": certificateFilePath,
+                "sahamatiCantralRegistryKey": shamatiCentral
+            }
+
+            await trackPromise(postServiceMethod("settings", jsonObject).then((resp) => {
+
+                if (resp) {
+
+                    console.log(resp, 'respsubmit');
+                    if (resp.status === "completed") {
+
+                        popUp({ message: "App Settings successfully updated.", icons: "success", title: "Success" }).then((event) => {
+                            if (event.isConfirmed) {
+                                closeEditing();
+                            }
+                        })
+                    }
+                }
+            }))
+        } catch (error) {
+
+            console.log(error, 'error');
+            popUp({ message: "Something went wrong.", icons: "error", title: "Error" });
+        }
     }
 
 
@@ -477,13 +544,13 @@ function ManageAppSettings() {
 
                 <CardActions className={styles.cardButtonStyle}>
 
-                    <Button type='reset' variant='contained' color="primary">
+                    <Button type='reset' variant='contained' onClick={() => closeEditing()} color="primary">
                         Close
                     </Button>
 
                     {buttonChange ?
 
-                        <Button type='submit' color='primary' variant='outlined'>
+                        <Button type='submit' color='primary' variant='outlined' onClick={() => onSubmit()}>
                             Save Changes
                         </Button>
 
@@ -503,8 +570,6 @@ function ManageAppSettings() {
 
 
     )
-
-
 }
 
 

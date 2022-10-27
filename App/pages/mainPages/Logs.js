@@ -19,6 +19,7 @@ export class Logs extends Component {
         super(props)
 
         this.state = {
+
             date: null,
             institutionLabel: [],
             searchInstitution: "",
@@ -329,7 +330,6 @@ export class Logs extends Component {
         )
     }
 }
-
 
 
 export default Logs

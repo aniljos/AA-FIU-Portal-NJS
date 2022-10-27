@@ -4,7 +4,7 @@ import { trackPromise } from "react-promise-tracker";
 import { popUp } from "../helper/popUp";
 import styles from "../../styles/Home.module.css";
 import { LoadingSpinnerComponent } from "../helper/loadingSpinner";
-import { getServiceMethod } from "../services/axiosService";
+import { getServiceMethod, putServiceMethod } from "../services/axiosService";
 import { ReactUtilityTable } from "react-utility-table";
 import { useRouter } from "next/router";
 
@@ -90,6 +90,37 @@ function AaBasedAnalytics() {
                                 { title: "Mobile No.", field: "mobileNo" },
 
                             ]}
+
+                            editable={{
+
+                                onRowUpdate: (newData, oldData) =>
+                                    new Promise((resolve, reject) => {
+
+                                        setTimeout(async () => {
+
+                                            const dataUpdate = [...tableData]
+                                            const index = oldData.tableData.id;
+                                            dataUpdate[index] = newData;
+
+                                            try {
+
+                                                await trackPromise(putServiceMethod("institutions", newData).then((resp) => {
+
+                                                    if (resp) {
+
+                                                        console.log(resp, 'updatedresp');
+                                                        setTableData([...dataUpdate])
+                                                    }
+                                                }))
+                                            } catch (error) {
+
+                                                console.log(error, 'error');
+                                                popUp({ message: "Something went wrong.", icons: "error", title: "Error" });
+                                            }
+                                            resolve()
+                                        }, 1000)
+                                    })
+                            }}
 
                         />
 

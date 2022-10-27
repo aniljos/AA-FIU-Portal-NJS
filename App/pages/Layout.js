@@ -4,9 +4,7 @@ import Header from '../component/Header';
 import MuiAppBar from "@mui/material/AppBar"
 import MuiDrawer from "@mui/material/Drawer"
 import styles from "../styles/Home.module.css"
-// import { Outlet } from "react-router-dom";
 import { MainMenuItems } from "../component/ListItem";
-
 
 
 const drawerWidth = 240;
@@ -149,7 +147,6 @@ function Main({ children }) {
                     <Toolbar />
 
                     <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
-                        
                         {children}
                     </Container>
 
@@ -163,5 +160,3 @@ function Main({ children }) {
 }
 
 export default Main;
-
-

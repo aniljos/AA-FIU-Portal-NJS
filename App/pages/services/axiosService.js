@@ -33,6 +33,7 @@ export async function getServiceMethod(url) {
     }
 }
 
+
 export async function putServiceMethod(url, body) {
 
     try {

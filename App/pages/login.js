@@ -13,10 +13,12 @@ export default function Login() {
     const userRef = useRef(null)
     const passRef = useRef(null)
 
+
     function onSubmit() {
 
-        router.push("/dashboard")
+        router.push("/mainPages/Dashboard")
     }
+
 
     return (
 
@@ -61,11 +63,9 @@ export default function Login() {
                             ref={passRef}
                         />
 
-
                         <Typography className={styles.forgotPassword}>
                             Forgot Password?
                         </Typography>
-
 
                         <div className={styles.loginBtnWrapper}>
 

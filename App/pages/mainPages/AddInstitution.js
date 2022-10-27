@@ -123,9 +123,9 @@ function InstituteManagement() {
             return
         }
 
-        if (mobileNo.length > 10) {
+        if (mobileNo.length < 10) {
 
-            popUp({ message: "Length of the Mobile No. cannot be greater than 10 digits.", icons: "error", title: "Error" }).then((event) => {
+            popUp({ message: "Length of the Mobile No. cannot be less than 10 digits.", icons: "error", title: "Error" }).then((event) => {
                 if (event.isConfirmed) {
                     mobile_number.current.focus();
                 }
@@ -133,9 +133,9 @@ function InstituteManagement() {
             return
         }
 
-        if (mobileNo.length < 10) {
+        if (mobileNo.length > 10) {
 
-            popUp({ message: "Length of the Mobile No. cannot be less than 10 digits.", icons: "error", title: "Error" }).then((event) => {
+            popUp({ message: "Lenght of the Mobile No. cannot be more than 10 digits.", icons: "error", title: "Error" }).then((event) => {
                 if (event.isConfirmed) {
                     mobile_number.current.focus();
                 }
@@ -564,9 +564,7 @@ function InstituteManagement() {
 
 
     )
-
 }
-
 
 
 export default InstituteManagement
