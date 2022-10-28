@@ -2,9 +2,9 @@ import { Autocomplete, Button, Container, Grid, TextField } from "@mui/material"
 import moment from "moment";
 import { Component, createRef } from "react";
 import { trackPromise } from "react-promise-tracker";
-import { popUp } from "../helper/popUp";
-import { LoadingSpinnerComponent } from "../helper/loadingSpinner";
-import { getServiceMethod } from "../services/axiosService";
+import { popUp } from "../../component/helper/popUp";
+import { LoadingSpinnerComponent } from "../../component/helper/loadingSpinner";
+import { getServiceMethod } from "../../component/services/axiosService";
 import styles from '../../styles/Home.module.css';
 import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";

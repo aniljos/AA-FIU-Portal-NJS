@@ -1,10 +1,10 @@
 import { Button, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { trackPromise } from "react-promise-tracker";
-import { popUp } from "../helper/popUp";
+import { popUp } from "../../component/helper/popUp";
 import styles from "../../styles/Home.module.css";
-import { LoadingSpinnerComponent } from "../helper/loadingSpinner";
-import { getServiceMethod, putServiceMethod } from "../services/axiosService";
+import { LoadingSpinnerComponent } from "../../component/helper/loadingSpinner";
+import { getServiceMethod, putServiceMethod } from "../../component/services/axiosService";
 import { ReactUtilityTable } from "react-utility-table";
 import { useRouter } from "next/router";
 

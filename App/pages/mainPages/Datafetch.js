@@ -1,14 +1,14 @@
 import { Component, createRef } from "react";
 import { trackPromise } from "react-promise-tracker";
-import { getConsentInfo } from "../services/service";
+import { getConsentInfo } from "../../component/services/service";
 import { Autocomplete, Box, Button, Card, CardContent, CardMedia, Container, Grid, Modal, TextField, Tooltip, Typography } from "@mui/material";
 import { DateTimePicker, DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import styles from '../../styles/Home.module.css';
 import moment from "moment";
-import { popUp } from "../helper/popUp";
+import { popUp } from "../../component/helper/popUp";
 import { ReactUtilityTable } from "react-utility-table";
-import { LoadingSpinnerComponent } from "../helper/loadingSpinner"
+import { LoadingSpinnerComponent } from "../../component/helper/loadingSpinner"
 
 
 const style = {

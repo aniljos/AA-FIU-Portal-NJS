@@ -1,11 +1,11 @@
 import { Autocomplete, Box, Card, CardContent, CardMedia, Container, Grid, TextField, Typography } from "@mui/material";
 import { Component } from "react";
 import { trackPromise } from "react-promise-tracker";
-import { getServiceMethod } from "../services/axiosService";
+import { getServiceMethod } from "../../component/services/axiosService";
 import styles from "../../styles/Home.module.css"
 import moment from "moment";
-import { popUp } from "../helper/popUp";
-import { LoadingSpinnerComponent } from "../helper/loadingSpinner";
+import { popUp } from "../../component/helper/popUp";
+import { LoadingSpinnerComponent } from "../../component/helper/loadingSpinner";
 import { ReactUtilityTable } from "react-utility-table";
 
 

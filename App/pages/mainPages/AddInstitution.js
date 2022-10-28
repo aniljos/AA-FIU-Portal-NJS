@@ -3,9 +3,9 @@ import styles from "../../styles/Home.module.css";
 import { useRef, useState } from "react";
 import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { popUp } from "../helper/popUp";
+import { popUp } from "../../component/helper/popUp";
 import { trackPromise } from "react-promise-tracker";
-import { postServiceMethod } from "../services/axiosService";
+import { postServiceMethod } from "../../component/services/axiosService";
 import { useRouter } from "next/router";
 
 

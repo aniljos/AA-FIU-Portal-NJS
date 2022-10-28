@@ -4,9 +4,9 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { useEffect, useState } from "react"
 import { trackPromise } from "react-promise-tracker";
 import styles from "../../styles/Home.module.css";
-import { popUp } from "../helper/popUp";
-import { LoadingSpinnerComponent } from "../helper/loadingSpinner";
-import { getServiceMethod, postServiceMethod } from "../services/axiosService";
+import { popUp } from "../../component/helper/popUp";
+import { LoadingSpinnerComponent } from "../../component/helper/loadingSpinner";
+import { getServiceMethod, postServiceMethod } from "../../component/services/axiosService";
 
 
 
