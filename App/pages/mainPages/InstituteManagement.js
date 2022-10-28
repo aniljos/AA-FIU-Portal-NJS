@@ -13,8 +13,8 @@ import { useRouter } from "next/router";
 function AaBasedAnalytics() {
 
     const [loading, setLoading] = useState(true);
-    const [tableData, setTableData] = useState([])
-    const router = useRouter()
+    const [tableData, setTableData] = useState([]);
+    const router = useRouter();
 
 
     useEffect(() => {
@@ -31,22 +31,22 @@ function AaBasedAnalytics() {
 
                 if (resp) {
 
-                    console.log(resp, 'resp')
-                    setTableData(resp)
-                    setLoading(false)
+                    console.log(resp, 'resp');
+                    setTableData(resp);
+                    setLoading(false);
                 }
             }))
         } catch (error) {
 
-            console.log(error, 'error')
-            popUp({ message: "Something went wrong.", icons: "error", title: "Error" })
+            console.log(error, 'error');
+            popUp({ message: "Something went wrong.", icons: "error", title: "Error" });
         }
     }
 
 
     function addNewInstitution() {
 
-        router.push("/mainPages/AddInstitution")
+        router.push("/mainPages/AddInstitution");
     }
 
 
@@ -55,11 +55,7 @@ function AaBasedAnalytics() {
 
         <div>
 
-            {loading === true ?
-
-                <LoadingSpinnerComponent />
-
-                : null}
+            {loading === true ? <LoadingSpinnerComponent /> : null}
 
             <Grid container item xs={12} lg={12} md={12} sm={12} className={styles.searchDataMenu}>
 
@@ -143,6 +139,7 @@ function AaBasedAnalytics() {
             </Grid>
 
         </div>
+
 
     )
 }

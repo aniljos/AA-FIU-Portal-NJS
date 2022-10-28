@@ -138,7 +138,6 @@ export class DataFetch extends Component {
                 for (let j = 0; j <= resp[i]['consents'].length - 1; j++) {
 
                     switch (resp[i].consents[j]['status']) {
-
                         case "Active":
                             active++;
                             break;
@@ -172,7 +171,6 @@ export class DataFetch extends Component {
                     let respEndDate = moment(resp[h].consents[i].endDate).format("YYYY-MM-DD")
 
                     if (moment(firstDate).isBefore(respStartDate) && moment(secondDate).isAfter(respEndDate)) {
-
                         emptyDateSearch.push(resp[h].consents[i])
                     }
                 }
@@ -181,7 +179,6 @@ export class DataFetch extends Component {
             for (let z = 0; z < emptyDateSearch.length; z++) {
 
                 switch (emptyDateSearch[z].status) {
-
                     case "Active":
                         active++;
                         break;
@@ -288,7 +285,6 @@ export class DataFetch extends Component {
                     let respEndDate = moment(resp[i].consents[j].endDate).format("YYYY-MM-DD");
 
                     if (moment(firstDate).isBefore(respStartDate) && moment(secondDate).isAfter(respEndDate)) {
-
                         emptyDateSearch.push(resp[i].consents[j]);
                     }
                 }
@@ -313,7 +309,6 @@ export class DataFetch extends Component {
             }
 
             if (showTableData.length === 0) {
-
                 this.firstCall();
             }
         }
@@ -351,8 +346,6 @@ export class DataFetch extends Component {
                 if (resp) {
 
                     if (resp.length !== 0) {
-
-                        console.log(resp, 'rsp')
 
                         this.setState({
                             dbData: resp
@@ -421,7 +414,6 @@ export class DataFetch extends Component {
                                     for (let k = 0; k < resp[j].consents.length; k++) {
 
                                         if (this.state.status[i].title === resp[j].consents[k].status) {
-
                                             tempArray.push(resp[j].consents[k]);
                                         }
                                     }
@@ -431,7 +423,6 @@ export class DataFetch extends Component {
                             for (let x = 0; x < tempArray.length; x++) {
 
                                 switch (tempArray[x].status) {
-
                                     case 'Active':
                                         active++;
                                         break;
@@ -479,7 +470,6 @@ export class DataFetch extends Component {
                                     for (let k = 0; k < resp[j].consents.length; k++) {
 
                                         if (this.state.purpose[i].title === resp[j].consents[k].purpose) {
-
                                             tempArray.push(resp[j].consents[k]);
                                         }
                                     }
@@ -489,7 +479,6 @@ export class DataFetch extends Component {
                             for (let x = 0; x < tempArray.length; x++) {
 
                                 switch (tempArray[x].status) {
-
                                     case 'Active':
                                         active++;
                                         break;
@@ -542,7 +531,6 @@ export class DataFetch extends Component {
                                             for (let j = 0; j <= tempArray[i]['consents'].length - 1; j++) {
 
                                                 switch (tempArray[i].consents[j]['status']) {
-
                                                     case "Active":
                                                         active++;
                                                         break;
@@ -596,7 +584,6 @@ export class DataFetch extends Component {
                                         for (let k = 0; k < resp[j].consents.length; k++) {
 
                                             if (this.state.purpose[i].title === resp[j].consents[k].purpose && this.state.status[m].title === resp[j].consents[k].status) {
-
                                                 tempArray.push(resp[j].consents[k]);
                                             }
                                         }
@@ -662,7 +649,6 @@ export class DataFetch extends Component {
                                                     tempArray.push(resp[h].consents[i]);
 
                                                     switch (resp[h].consents[i].status) {
-
                                                         case "Active":
                                                             active++;
                                                             break;
@@ -705,7 +691,6 @@ export class DataFetch extends Component {
                         //getting data when every field is blank.
 
                         if (this.state.searchInstitution.length === 0 && this.state.purpose.length === 0 && this.state.status.length === 0) {
-
                             this.firstCall();
                         }
 
@@ -730,7 +715,6 @@ export class DataFetch extends Component {
                                                     tempArray.push(resp[h].consents[i]);
 
                                                     switch (resp[h].consents[i].status) {
-
                                                         case "Active":
                                                             active++;
                                                             break;
@@ -795,7 +779,6 @@ export class DataFetch extends Component {
                                                             tempArray.push(resp[h].consents[i]);
 
                                                             switch (resp[h].consents[i].status) {
-
                                                                 case "Active":
                                                                     active++;
                                                                     break;
@@ -922,11 +905,7 @@ export class DataFetch extends Component {
 
             <div>
 
-                {this.state.loading === true ?
-
-                    <LoadingSpinnerComponent />
-
-                    : null}
+                {this.state.loading === true ? <LoadingSpinnerComponent /> : null}
 
                 <Grid container item lg={12} md={12} sm={12} xs={12} className={styles.searchDataMenu}>
 
@@ -963,7 +942,7 @@ export class DataFetch extends Component {
 
                     <Grid container lg={2} md={2} sm={12} xs={12} className={styles.haMenu}>
 
-                        <Button variant="contained" type='submit' onClick={this.onSubmit}>
+                        <Button variant="outlined" type='submit' onClick={this.onSubmit}>
                             Search
                         </Button>
 
@@ -1031,7 +1010,6 @@ export class DataFetch extends Component {
                                 <Card className={styles.cardContentStyle} style={{ backgroundColor: this.state.cardColor[index] }}>
 
                                     <Box className={styles.cardBox}>
-
                                         <CardContent>
 
                                             <Typography component="div" variant="h4" className={styles.cardWidgetNumber}>
@@ -1043,7 +1021,6 @@ export class DataFetch extends Component {
                                             </Typography>
 
                                         </CardContent>
-
                                     </Box>
 
                                     <CardMedia component="img" image={this.state.cardImage[index]} alt="Status" className={styles.cardImageStyle} />
@@ -1232,7 +1209,6 @@ export class DataFetch extends Component {
                                                                         </span>
                                                 }
                                             </>
-
                                         )
                                     }
                                 },
@@ -1258,7 +1234,12 @@ export class DataFetch extends Component {
 
                     <div>
 
-                        <Modal open={this.state.openModal} onClose={() => this.closeModalFunction()} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+                        <Modal
+                            open={this.state.openModal}
+                            onClose={() => this.closeModalFunction()}
+                            aria-labelledby="modal-modal-title"
+                            aria-describedby="modal-modal-description"
+                        >
 
                             <Box sx={style}>
 
@@ -1556,7 +1537,7 @@ export class DataFetch extends Component {
 
                                 <Grid item xs={12} lg={12} md={12} sm={12} style={{ textAlign: "center" }}>
 
-                                    <Button variant="contained" onClick={() => this.closeModalFunction()}>
+                                    <Button variant="outlined" color="primary" onClick={() => this.closeModalFunction()}>
                                         Close
                                     </Button>
 

@@ -83,7 +83,6 @@ export const MainMenuItems = React.memo((props: any) => {
                         </Fragment>
 
                     )
-
                 }
                 else {
 

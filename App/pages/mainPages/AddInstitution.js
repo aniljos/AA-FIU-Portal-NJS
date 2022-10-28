@@ -39,23 +39,25 @@ function InstituteManagement() {
     const authority_documentName = useRef(null);
     const authority_documentPath = useRef(null);
     //router
-    const router = useRouter()
+    const router = useRouter();
 
 
     function clearScreen() {
 
+        setAuthorityDocumentPath("");
+        setAddress("");
         setInstitutionId("");
         setInstitutionIdName("");
+        setAuthorityDocumentName("");
         setInstitutionType("");
-        setInstitutionName("");
-        setAddress("");
         setMobileNo(0);
+        setInstitutionName("");
         setAuthorizedPerson("");
         setDate(null);
-        setServerUrl("");
         setServerIpAddress("");
-        setAuthorityDocumentName("");
-        setAuthorityDocumentPath("");
+        setServerUrl("");
+
+        institution_id.current.focus();
     }
 
 
@@ -123,9 +125,9 @@ function InstituteManagement() {
             return
         }
 
-        if (mobileNo.length < 10) {
+        if (mobileNo.length > 10) {
 
-            popUp({ message: "Length of the Mobile No. cannot be less than 10 digits.", icons: "error", title: "Error" }).then((event) => {
+            popUp({ message: "Length of the Mobile No. cannot be more than 10 digits.", icons: "error", title: "Error" }).then((event) => {
                 if (event.isConfirmed) {
                     mobile_number.current.focus();
                 }
@@ -133,9 +135,9 @@ function InstituteManagement() {
             return
         }
 
-        if (mobileNo.length > 10) {
+        if (mobileNo.length < 10) {
 
-            popUp({ message: "Lenght of the Mobile No. cannot be more than 10 digits.", icons: "error", title: "Error" }).then((event) => {
+            popUp({ message: "Length of the Mobile No. cannot be less than 10 digits.", icons: "error", title: "Error" }).then((event) => {
                 if (event.isConfirmed) {
                     mobile_number.current.focus();
                 }
@@ -165,7 +167,7 @@ function InstituteManagement() {
 
         if (date < todaysDate) {
 
-            popUp({ message: "Date cannot be less than today's date.", icons: "error", title: "Error" }).then((event) => {
+            popUp({ message: "Date cannot be less than Today's date.", icons: "error", title: "Error" }).then((event) => {
                 if (event.isConfirmed) {
                     set_date.current.focus();
                 }
@@ -193,21 +195,21 @@ function InstituteManagement() {
             return
         }
 
-        if (authorityDocumentName === "" || authorityDocumentName === null || authorityDocumentName === undefined) {
-
-            popUp({ message: "Please enter the Authority Document Name.", icons: "error", title: "Error" }).then((event) => {
-                if (event.isConfirmed) {
-                    authority_documentName.current.focus();
-                }
-            })
-            return
-        }
-
         if (authorityDocumentPath === "" || authorityDocumentPath === null || authorityDocumentPath === undefined) {
 
             popUp({ message: "Please enter the Authority Document Path.", icons: "error", title: "Error" }).then((event) => {
                 if (event.isConfirmed) {
                     authority_documentPath.current.focus();
+                }
+            })
+            return
+        }
+
+        if (authorityDocumentName === "" || authorityDocumentName === null || authorityDocumentName === undefined) {
+
+            popUp({ message: "Please enter the Authority Document Name.", icons: "error", title: "Error" }).then((event) => {
+                if (event.isConfirmed) {
+                    authority_documentName.current.focus();
                 }
             })
             return
@@ -249,7 +251,7 @@ function InstituteManagement() {
                     }
                     else {
 
-                        popUp({ message: "No response from the server.", icons: "error", title: "Error" })
+                        popUp({ message: "No response came from the server.", icons: "error", title: "Error" })
                     }
                 })
             } catch (error) {
@@ -263,7 +265,7 @@ function InstituteManagement() {
 
     function backtoAaBased() {
 
-        router.push("/component/instituteManagement")
+        router.push("/mainPages/InstituteManagement");
     }
 
 
@@ -465,7 +467,7 @@ function InstituteManagement() {
                                 <Grid lg={4} md={4} sm={12} xs={12}>
 
                                     <Typography>
-                                        Server URL
+                                        Server Url
                                     </Typography>
 
                                 </Grid>
@@ -544,7 +546,7 @@ function InstituteManagement() {
 
                 <CardActions className={styles.cardButtonStyle}>
 
-                    <Button variant="contained" color='warning' onClick={() => onSubmit()} type='submit'>
+                    <Button variant="contained" color='primary' onClick={() => onSubmit()} type='submit'>
                         Add New Institution
                     </Button>
 

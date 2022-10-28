@@ -13,6 +13,7 @@ a {
 
 * {
   box-sizing: border-box;
+  outline: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -82,4 +83,43 @@ p {
 
 .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
   margin-right: 0px !important;
+}
+
+::-webkit-resizer {
+  background: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background: #f8f8f8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px #cbd5e1;
+  -webkit-box-shadow: inset 0 0 5px #cbd5e1;
+  -webkit-border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f8f8;
+  box-shadow: inset 0 0 5px #f8f8f8;
+  -webkit-box-shadow: inset 0 0 5px #f8f8f8;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: 1px solid #cbd5e1;
+}
+
+.MuiContainer-root {
+  margin-top: 17px !important;
+  margin-bottom: 17px !important;
+}
+
+.MuiButton-containedPrimary {
+  background-color: #E47325 !important;
 }

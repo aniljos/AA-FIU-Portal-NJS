@@ -97,7 +97,6 @@ export class Logs extends Component {
                             let secondDate = moment(resp[i].date).format("YYYY-MM-DD");
 
                             if (firstDate === secondDate) {
-
                                 showTableData.push(resp[i])
                             }
                         }
@@ -156,7 +155,6 @@ export class Logs extends Component {
                                 for (let j = 0; j < this.state.searchInstitution.length; j++) {
 
                                     if (this.state.searchInstitution[j].institutionName === resp[i].institutionName) {
-
                                         showTableData.push(resp[i])
                                     }
                                 }
@@ -167,7 +165,6 @@ export class Logs extends Component {
                                 for (let k = 0; k < this.state.searchLevel.length; k++) {
 
                                     if (this.state.searchLevel[k].title === resp[i].level) {
-
                                         showTableData.push(resp[i])
                                     }
                                 }
@@ -182,7 +179,6 @@ export class Logs extends Component {
                                         if (this.state.searchInstitution[j].institutionName === resp[i].institutionName) {
 
                                             if (this.state.searchLevel[k].title === resp[i].level) {
-
                                                 showTableData.push(resp[i])
                                             }
                                         }
@@ -192,7 +188,6 @@ export class Logs extends Component {
                         }
 
                         if (this.state.searchInstitution.length === 0 && this.state.searchLevel.length === 0) {
-
                             this.firstCall();
                         }
 
@@ -206,7 +201,7 @@ export class Logs extends Component {
         } catch (error) {
 
             console.log(error, 'error');
-            popUp({ message: "Something went wrong", icons: "error", title: "Error" })
+            popUp({ message: "Something went wrong", icons: "error", title: "Error" });
         }
     }
 
@@ -218,11 +213,7 @@ export class Logs extends Component {
 
             <div>
 
-                {this.state.loading ?
-
-                    <LoadingSpinnerComponent />
-
-                    : null}
+                {this.state.loading ? <LoadingSpinnerComponent /> : null}
 
                 <Grid container item lg={12} md={12} sm={12} xs={12} className={styles.searchDataMenu}>
 

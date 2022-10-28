@@ -1,5 +1,5 @@
 import { Box, Container, createTheme, CssBaseline, Divider, List, Paper, styled, ThemeProvider, Toolbar } from '@mui/material';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Header from '../component/Header';
 import MuiAppBar from "@mui/material/AppBar"
 import MuiDrawer from "@mui/material/Drawer"
@@ -68,6 +68,7 @@ const mdTheme = createTheme();
 function Main({ children }) {
 
     const [open, setOpen] = useState(true);
+
 
     return (
 
@@ -158,5 +159,6 @@ function Main({ children }) {
 
     )
 }
+
 
 export default Main;

@@ -99,7 +99,6 @@ export class DataFetchAnalytics extends Component {
                 for (let j = 0; j < resp[i].datafetchs.length; j++) {
 
                     switch (resp[i].datafetchs[j].status) {
-
                         case "Success":
                             success++;
                             break;
@@ -224,7 +223,6 @@ export class DataFetchAnalytics extends Component {
                                             for (let k = 0; k < tempArray[j].datafetchs.length; k++) {
 
                                                 switch (tempArray[j].datafetchs[k].status) {
-
                                                     case "Success":
                                                         success++;
                                                         break;
@@ -260,7 +258,6 @@ export class DataFetchAnalytics extends Component {
                                     for (let k = 0; k < resp[j].datafetchs.length; k++) {
 
                                         if (this.state.statusComplete[i].title === resp[j].datafetchs[k].status) {
-
                                             tempArray.push(resp[j].datafetchs[k]);
                                         }
                                     }
@@ -270,7 +267,6 @@ export class DataFetchAnalytics extends Component {
                             for (let x = 0; x < tempArray.length; x++) {
 
                                 switch (tempArray[x].status) {
-
                                     case "Success":
                                         success++;
                                         break;
@@ -310,7 +306,6 @@ export class DataFetchAnalytics extends Component {
                                                     tempArray.push(resp[h].datafetchs[i])
 
                                                     switch (resp[h].datafetchs[i].status) {
-
                                                         case "Success":
                                                             success++;
                                                             break;
@@ -385,11 +380,7 @@ export class DataFetchAnalytics extends Component {
 
             <div>
 
-                {this.state.loading === true ?
-
-                    <LoadingSpinnerComponent />
-
-                    : null}
+                {this.state.loading === true ? <LoadingSpinnerComponent /> : null}
 
                 <Grid container item lg={12} md={12} sm={12} xs={12} className={styles.searchDataMenu}>
 
@@ -436,7 +427,6 @@ export class DataFetchAnalytics extends Component {
                                 <Card className={styles.cardContentStyle}>
 
                                     <Box className={styles.cardBox}>
-
                                         <CardContent>
 
                                             <Typography component="div" variant="h4" className={styles.cardWidgetNumber}>
@@ -448,7 +438,6 @@ export class DataFetchAnalytics extends Component {
                                             </Typography>
 
                                         </CardContent>
-
                                     </Box>
 
                                     <CardMedia component="img" image={this.state.cardImage[index]} alt="Status" className={styles.cardImageStyle} />

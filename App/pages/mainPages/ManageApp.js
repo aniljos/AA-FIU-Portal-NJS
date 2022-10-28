@@ -66,27 +66,27 @@ function ManageAppSettings() {
 
                     console.log(resp, 'resp');
                     setLoading(false);
-                    setJws(resp.jwsRequired);
-                    setCertificateFileName(resp.certificateFileName);
                     setAllowedHost(resp.allowedHosts);
-                    setCertificateFileNamePrimary(resp.certificateFileNamePK);
-                    setSubscriber(resp.subscriberSuffix);
-                    setCertificateFileNamePass(resp.certificateFileNamePassPhrase);
-                    setDateFormat(resp.dateFormat);
-                    setLicenseKey(resp.licenceKey);
-                    setDatabaseName(resp.databaseName);
-                    setLicenseExpiryDate(resp.licenceExpiry);
-                    setCurrentApiVersion(resp.currentAPIVersion);
-                    setLicenseTo(resp.licenceTo);
-                    setBaseApplicationPath(resp.baseApplicationPath);
                     setAssesmentType(resp.assessmentType);
+                    setBaseApplicationPath(resp.baseApplicationPath);
+                    setCertificateFileName(resp.certificateFileName);
+                    setCertificateFileNamePrimary(resp.certificateFileNamePK);
+                    setCertificateFileNamePass(resp.certificateFileNamePassPhrase);
                     setCertificateFilePath(resp.certificateFilePath);
-                    setShamatiCentral(resp.sahamatiCantralRegistryKey)
+                    setCurrentApiVersion(resp.currentAPIVersion);
+                    setDatabaseName(resp.databaseName);
+                    setDateFormat(resp.dateFormat);
+                    setJws(resp.jwsRequired);
+                    setLicenseExpiryDate(resp.licenceExpiry);
+                    setLicenseKey(resp.licenceKey);
+                    setLicenseTo(resp.licenceTo);
+                    setShamatiCentral(resp.sahamatiCantralRegistryKey);
+                    setSubscriber(resp.subscriberSuffix);
                 }
             }))
         } catch (error) {
 
-            console.log(error, 'error')
+            console.log(error, 'error');
             popUp({ message: "Something went wrong.", icons: "error", title: "Error" });
         }
     }
@@ -95,44 +95,44 @@ function ManageAppSettings() {
     function fieldEditing() {
 
         setButtonChange(true);
-        setJwsDisable(false);
         setCertificateFileNameDisable(false);
-        setAllowedHostDisable(false);
-        setCertificateFileNamePrimaryDisable(false);
-        setSubscriberDisable(false);
-        setCertificateFileNamePassDisable(false);
-        setDateFormatDisable(false);
-        setLicenseKeyDisable(false);
-        setDatabaseNameDisable(false);
-        setLicenseExpiryDateDisable(false);
-        setCurrentApiVersionDisable(false);
-        setLicenseToDisable(false);
-        setBaseApplicationPathDisable(false);
-        setAssesmentTypeDisable(false);
-        setCertificateFilePathDisable(false);
         setShamatiCentralDisable(false);
+        setLicenseExpiryDateDisable(false);
+        setAssesmentTypeDisable(false);
+        setDateFormatDisable(false);
+        setJwsDisable(false);
+        setCertificateFileNamePrimaryDisable(false);
+        setAllowedHostDisable(false);
+        setCertificateFileNamePassDisable(false);
+        setLicenseKeyDisable(false);
+        setCertificateFilePathDisable(false);
+        setDatabaseNameDisable(false);
+        setBaseApplicationPathDisable(false);
+        setSubscriberDisable(false);
+        setLicenseToDisable(false);
+        setCurrentApiVersionDisable(false);
     }
 
 
     function closeEditing() {
 
         setButtonChange(false);
-        setJwsDisable(true);
         setCertificateFileNameDisable(true);
-        setAllowedHostDisable(true);
-        setCertificateFileNamePrimaryDisable(true);
-        setSubscriberDisable(true);
-        setCertificateFileNamePassDisable(true);
-        setDateFormatDisable(true);
-        setLicenseKeyDisable(true);
-        setDatabaseNameDisable(true);
-        setLicenseExpiryDateDisable(true);
-        setCurrentApiVersionDisable(true);
-        setLicenseToDisable(true);
-        setBaseApplicationPathDisable(true);
-        setAssesmentTypeDisable(true);
-        setCertificateFilePathDisable(true);
         setShamatiCentralDisable(true);
+        setLicenseExpiryDateDisable(true);
+        setAssesmentTypeDisable(true);
+        setDateFormatDisable(true);
+        setJwsDisable(true);
+        setCertificateFileNamePrimaryDisable(true);
+        setAllowedHostDisable(true);
+        setCertificateFileNamePassDisable(true);
+        setLicenseKeyDisable(true);
+        setCertificateFilePathDisable(true);
+        setDatabaseNameDisable(true);
+        setBaseApplicationPathDisable(true);
+        setSubscriberDisable(true);
+        setLicenseToDisable(true);
+        setCurrentApiVersionDisable(true);
     }
 
 
@@ -187,11 +187,7 @@ function ManageAppSettings() {
 
         <div className={styles.formClass}>
 
-            {loading === true ?
-
-                <LoadingSpinnerComponent />
-
-                : null}
+            {loading ? <LoadingSpinnerComponent /> : null}
 
             <Card variant="outlined" className={styles.classesCard}>
 
