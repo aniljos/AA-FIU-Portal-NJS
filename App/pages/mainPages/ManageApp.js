@@ -9,7 +9,6 @@ import { LoadingSpinnerComponent } from "../../component/helper/loadingSpinner";
 import { getServiceMethod, postServiceMethod } from "../../component/services/axiosService";
 
 
-
 function ManageAppSettings() {
 
     //state
@@ -51,8 +50,7 @@ function ManageAppSettings() {
 
 
     useEffect(() => {
-
-        firstCall()
+        firstCall();
     }, [])
 
 
@@ -61,27 +59,26 @@ function ManageAppSettings() {
         try {
 
             await trackPromise(getServiceMethod("settings").then((resp) => {
-
                 if (resp) {
 
                     console.log(resp, 'resp');
                     setLoading(false);
-                    setAllowedHost(resp.allowedHosts);
-                    setAssesmentType(resp.assessmentType);
-                    setBaseApplicationPath(resp.baseApplicationPath);
-                    setCertificateFileName(resp.certificateFileName);
-                    setCertificateFileNamePrimary(resp.certificateFileNamePK);
-                    setCertificateFileNamePass(resp.certificateFileNamePassPhrase);
-                    setCertificateFilePath(resp.certificateFilePath);
-                    setCurrentApiVersion(resp.currentAPIVersion);
-                    setDatabaseName(resp.databaseName);
-                    setDateFormat(resp.dateFormat);
                     setJws(resp.jwsRequired);
-                    setLicenseExpiryDate(resp.licenceExpiry);
-                    setLicenseKey(resp.licenceKey);
-                    setLicenseTo(resp.licenceTo);
-                    setShamatiCentral(resp.sahamatiCantralRegistryKey);
+                    setCertificateFileName(resp.certificateFileName);
+                    setAllowedHost(resp.allowedHosts);
+                    setCertificateFileNamePrimary(resp.certificateFileNamePK);
                     setSubscriber(resp.subscriberSuffix);
+                    setCertificateFileNamePass(resp.certificateFileNamePassPhrase);
+                    setDateFormat(resp.dateFormat);
+                    setLicenseKey(resp.licenceKey);
+                    setDatabaseName(resp.databaseName);
+                    setLicenseExpiryDate(resp.licenceExpiry);
+                    setCurrentApiVersion(resp.currentAPIVersion);
+                    setLicenseTo(resp.licenceTo);
+                    setBaseApplicationPath(resp.baseApplicationPath);
+                    setAssesmentType(resp.assessmentType);
+                    setCertificateFilePath(resp.certificateFilePath);
+                    setShamatiCentral(resp.sahamatiCantralRegistryKey);
                 }
             }))
         } catch (error) {
@@ -94,45 +91,45 @@ function ManageAppSettings() {
 
     function fieldEditing() {
 
-        setButtonChange(true);
-        setCertificateFileNameDisable(false);
-        setShamatiCentralDisable(false);
-        setLicenseExpiryDateDisable(false);
-        setAssesmentTypeDisable(false);
-        setDateFormatDisable(false);
         setJwsDisable(false);
-        setCertificateFileNamePrimaryDisable(false);
+        setCertificateFileNameDisable(false);
         setAllowedHostDisable(false);
-        setCertificateFileNamePassDisable(false);
-        setLicenseKeyDisable(false);
-        setCertificateFilePathDisable(false);
-        setDatabaseNameDisable(false);
-        setBaseApplicationPathDisable(false);
+        setCertificateFileNamePrimaryDisable(false);
         setSubscriberDisable(false);
-        setLicenseToDisable(false);
+        setCertificateFileNamePassDisable(false);
+        setDateFormatDisable(false);
+        setLicenseKeyDisable(false);
+        setDatabaseNameDisable(false);
+        setLicenseExpiryDateDisable(false);
         setCurrentApiVersionDisable(false);
+        setLicenseToDisable(false);
+        setBaseApplicationPathDisable(false);
+        setAssesmentTypeDisable(false);
+        setCertificateFilePathDisable(false);
+        setShamatiCentralDisable(false);
+        setButtonChange(true);
     }
 
 
     function closeEditing() {
 
-        setButtonChange(false);
-        setCertificateFileNameDisable(true);
-        setShamatiCentralDisable(true);
-        setLicenseExpiryDateDisable(true);
-        setAssesmentTypeDisable(true);
-        setDateFormatDisable(true);
         setJwsDisable(true);
-        setCertificateFileNamePrimaryDisable(true);
+        setCertificateFileNameDisable(true);
         setAllowedHostDisable(true);
-        setCertificateFileNamePassDisable(true);
-        setLicenseKeyDisable(true);
-        setCertificateFilePathDisable(true);
-        setDatabaseNameDisable(true);
-        setBaseApplicationPathDisable(true);
+        setCertificateFileNamePrimaryDisable(true);
         setSubscriberDisable(true);
-        setLicenseToDisable(true);
+        setCertificateFileNamePassDisable(true);
+        setDateFormatDisable(true);
+        setLicenseKeyDisable(true);
+        setDatabaseNameDisable(true);
+        setLicenseExpiryDateDisable(true);
         setCurrentApiVersionDisable(true);
+        setLicenseToDisable(true);
+        setBaseApplicationPathDisable(true);
+        setAssesmentTypeDisable(true);
+        setCertificateFilePathDisable(true);
+        setShamatiCentralDisable(true);
+        setButtonChange(false);
     }
 
 
@@ -160,7 +157,6 @@ function ManageAppSettings() {
             }
 
             await trackPromise(postServiceMethod("settings", jsonObject).then((resp) => {
-
                 if (resp) {
 
                     console.log(resp, 'respsubmit');

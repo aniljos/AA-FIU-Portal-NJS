@@ -11,7 +11,6 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { ReactUtilityTable } from "react-utility-table";
 
 
-
 export class Logs extends Component {
 
     constructor(props) {
@@ -19,7 +18,6 @@ export class Logs extends Component {
         super(props)
 
         this.state = {
-
             date: null,
             institutionLabel: [],
             searchInstitution: "",
@@ -33,7 +31,6 @@ export class Logs extends Component {
 
 
     componentDidMount() {
-
         this.firstCall();
     }
 
@@ -43,13 +40,10 @@ export class Logs extends Component {
         try {
 
             await trackPromise(getServiceMethod("logs").then((resp) => {
-
                 if (resp) {
-
                     if (resp.length !== 0) {
 
                         console.log(resp, 'initialresp');
-
                         this.setState({
                             tableData: resp,
                             loading: false
@@ -84,9 +78,7 @@ export class Logs extends Component {
             })
 
             await trackPromise(getServiceMethod("logs").then((resp) => {
-
                 if (resp) {
-
                     if (resp.length !== 0) {
 
                         let showTableData = [];
@@ -95,7 +87,6 @@ export class Logs extends Component {
 
                             let firstDate = moment(this.state.date).format("YYYY-MM-DD");
                             let secondDate = moment(resp[i].date).format("YYYY-MM-DD");
-
                             if (firstDate === secondDate) {
                                 showTableData.push(resp[i])
                             }
@@ -113,7 +104,6 @@ export class Logs extends Component {
                             this.setState({
                                 tableData: []
                             })
-
                             popUp({ message: "No record found for the entered date.", icons: "error", title: "Error" }).then((event) => {
                                 if (event.isConfirmed) {
                                     this.date_ref.current.focus();
@@ -141,9 +131,7 @@ export class Logs extends Component {
             })
 
             await trackPromise(getServiceMethod("logs").then((resp) => {
-
                 if (resp) {
-
                     if (resp.length !== 0) {
 
                         let showTableData = [];
@@ -190,7 +178,6 @@ export class Logs extends Component {
                         if (this.state.searchInstitution.length === 0 && this.state.searchLevel.length === 0) {
                             this.firstCall();
                         }
-
                         this.setState({
                             tableData: showTableData,
                             loading: false
@@ -305,6 +292,7 @@ export class Logs extends Component {
                                 pageSize: 100,
                                 paging: true
                             }}
+
                         />
 
                         :

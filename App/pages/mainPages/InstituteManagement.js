@@ -1,13 +1,12 @@
 import { Button, Grid } from "@mui/material";
-import { useEffect, useState } from "react";
-import { trackPromise } from "react-promise-tracker";
-import { popUp } from "../../component/helper/popUp";
-import styles from "../../styles/Home.module.css";
-import { LoadingSpinnerComponent } from "../../component/helper/loadingSpinner";
-import { getServiceMethod, putServiceMethod } from "../../component/services/axiosService";
-import { ReactUtilityTable } from "react-utility-table";
 import { useRouter } from "next/router";
-
+import { useEffect, useState } from "react"
+import { trackPromise } from "react-promise-tracker";
+import { ReactUtilityTable } from "react-utility-table";
+import { LoadingSpinnerComponent } from "../../component/helper/loadingSpinner";
+import { popUp } from "../../component/helper/popUp";
+import { getServiceMethod, putServiceMethod } from "../../component/services/axiosService";
+import styles from "../../styles/Home.module.css";
 
 
 function AaBasedAnalytics() {
@@ -18,7 +17,6 @@ function AaBasedAnalytics() {
 
 
     useEffect(() => {
-
         onLoadApi()
     }, [])
 
@@ -28,12 +26,11 @@ function AaBasedAnalytics() {
         try {
 
             await trackPromise(getServiceMethod("institutions").then((resp) => {
-
                 if (resp) {
 
-                    console.log(resp, 'resp');
-                    setTableData(resp);
+                    console.log(resp, 'res');
                     setLoading(false);
+                    setTableData(resp);
                 }
             }))
         } catch (error) {
@@ -45,7 +42,6 @@ function AaBasedAnalytics() {
 
 
     function addNewInstitution() {
-
         router.push("/mainPages/AddInstitution");
     }
 
@@ -55,11 +51,11 @@ function AaBasedAnalytics() {
 
         <div>
 
-            {loading === true ? <LoadingSpinnerComponent /> : null}
+            {loading ? <LoadingSpinnerComponent /> : null}
 
             <Grid container item xs={12} lg={12} md={12} sm={12} className={styles.searchDataMenu}>
 
-                <Grid lg={12} item md={12} sm={12} xs={12}>
+                <Grid item lg={12} md={12} sm={12} xs={12}>
 
                     {tableData.length !== 0 ?
 
@@ -72,10 +68,8 @@ function AaBasedAnalytics() {
                                     backgroundColor: "#16335B",
                                     color: "#B6B6B6"
                                 },
-                                paging: true,
+                                paging: true
                             }}
-
-                            data={tableData}
 
                             columns={[
 
@@ -83,9 +77,11 @@ function AaBasedAnalytics() {
                                 { title: "Institution Name", field: "institutionName", editable: false },
                                 { title: "Authorized Person", field: "authorizedPerson" },
                                 { title: "Address", field: "address" },
-                                { title: "Mobile No.", field: "mobileNo" },
+                                { title: "Mobile No.", field: "mobileNo" }
 
                             ]}
+
+                            data={tableData}
 
                             editable={{
 
@@ -94,35 +90,32 @@ function AaBasedAnalytics() {
 
                                         setTimeout(async () => {
 
-                                            const dataUpdate = [...tableData]
+                                            const dataUpdate = [...tableData];
                                             const index = oldData.tableData.id;
                                             dataUpdate[index] = newData;
-
                                             try {
 
                                                 await trackPromise(putServiceMethod("institutions", newData).then((resp) => {
-
                                                     if (resp) {
 
-                                                        console.log(resp, 'updatedresp');
-                                                        setTableData([...dataUpdate])
+                                                        console.log("updatedresp", resp);
+                                                        setTableData([...dataUpdate]);
                                                     }
                                                 }))
                                             } catch (error) {
 
                                                 console.log(error, 'error');
-                                                popUp({ message: "Something went wrong.", icons: "error", title: "Error" });
+                                                popUp({ message: "Something went wrong", icons: "error", title: "Error" });
                                             }
                                             resolve()
                                         }, 1000)
                                     })
                             }}
-
                         />
 
                         :
 
-                        console.log("noData found in table")
+                        console.log("no data in table")
 
                     }
 
@@ -130,7 +123,7 @@ function AaBasedAnalytics() {
 
                 <Grid item xs={12} lg={12} md={12} sm={12} className={styles.addClassButton}>
 
-                    <Button type="submit" variant="outlined" onClick={() => addNewInstitution()} color="primary">
+                    <Button type="submit" variant="outlined" color="primary" onClick={() => addNewInstitution()}>
                         Add New Institution
                     </Button>
 

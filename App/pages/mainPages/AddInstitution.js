@@ -9,7 +9,6 @@ import { postServiceMethod } from "../../component/services/axiosService";
 import { useRouter } from "next/router";
 
 
-
 function InstituteManagement() {
 
     //state
@@ -44,20 +43,25 @@ function InstituteManagement() {
 
     function clearScreen() {
 
-        setAuthorityDocumentPath("");
-        setAddress("");
         setInstitutionId("");
         setInstitutionIdName("");
-        setAuthorityDocumentName("");
         setInstitutionType("");
-        setMobileNo(0);
         setInstitutionName("");
         setAuthorizedPerson("");
+        setMobileNo(0);
+        setAddress("");
         setDate(null);
-        setServerIpAddress("");
         setServerUrl("");
+        setServerIpAddress("");
+        setAuthorityDocumentName("");
+        setAuthorityDocumentPath("");
 
         institution_id.current.focus();
+    }
+
+
+    function backtoAaBased() {
+        router.push("/mainPages/InstituteManagement");
     }
 
 
@@ -237,11 +241,9 @@ function InstituteManagement() {
             try {
 
                 await trackPromise(postServiceMethod("institutions", jsonObject)).then((resp) => {
-
                     if (resp) {
 
                         console.log(resp, 'respAdd');
-
                         popUp({ message: "Institution successfully added.", icons: "success", title: "Success" }).then((event) => {
                             if (event.isConfirmed) {
                                 clearScreen();
@@ -260,12 +262,6 @@ function InstituteManagement() {
                 popUp({ message: "Something went wrong.", icons: "error", title: "Error" })
             }
         }
-    }
-
-
-    function backtoAaBased() {
-
-        router.push("/mainPages/InstituteManagement");
     }
 
 
